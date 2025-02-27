@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reading List</title>
+    <link rel="stylesheet" href="r.css">
+</head>
+<body>
+
+    <header>
+        <h1>Reading List</h1>
+    </header>
+
+    <div class="container">
+ 
+
+        <section id="not-started">
+            <h2>Не начинал</h2>
+            <div class="book-card" id="book1">
+                <h3>1Q84 – Харуки Мураками</h3>
+                <button class="start-btn" onclick="moveToReading('book1')">Начать читать</button>
+            </div>
+            <div class="book-card" id="book2">
+                <h3>1984 – Джордж Орвелл</h3>
+                <button class="start-btn" onclick="moveToReading('book2')">Начать читать</button>
+            </div>
+        </section>
+
+        
+        <section id="reading">
+            <h2>Читаю</h2>
+            
+        </section>
+
+       
+
+        <section id="completed">
+            <h2>Прочитано</h2>
+           
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Reading List. Все права защищены.</p>
+    </footer>
+
+    <script>
+        function moveToReading(bookId) {
+   
+    var bookCard = document.getElementById(bookId);
+    
+   
+    var readingSection = document.getElementById("reading");
+
+   
+    readingSection.appendChild(bookCard);
+
+    
+    var button = bookCard.querySelector("button");
+    button.textContent = "Завершить";
+    button.setAttribute("onclick", "moveToCompleted('" + bookId + "')");
+}
+
+function moveToCompleted(bookId) {
+   
+    var bookCard = document.getElementById(bookId);
+
+    
+    var completedSection = document.getElementById("completed");
+
+    
+    completedSection.appendChild(bookCard);
+
+    
+    var button = bookCard.querySelector("button");
+    button.textContent = "Переместить обратно";
+    button.setAttribute("onclick", "moveToNotStarted('" + bookId + "')");
+
+    
+    bookCard.style.transform = "scale(0.8)";
+    bookCard.style.opacity = "0";
+
+    setTimeout(function() {
+        bookCard.style.transform = "scale(1)";
+        bookCard.style.opacity = "1";
+    }, 500); 
+}
+
+function moveToNotStarted(bookId) {
+    
+    var bookCard = document.getElementById(bookId);
+
+   
+    var notStartedSection = document.getElementById("not-started");
+
+   
+    notStartedSection.appendChild(bookCard);
+
+    
+    var button = bookCard.querySelector("button");
+    button.textContent = "Начать читать";
+    button.setAttribute("onclick", "moveToReading('" + bookId + "')");
+
+    
+    bookCard.style.transform = "scale(0.8)";
+    bookCard.style.opacity = "0";
+
+    setTimeout(function() {
+        bookCard.style.transform = "scale(1)";
+        bookCard.style.opacity = "1";
+    }, 500); 
+}
+
+    </script>
+</body>
+</html>

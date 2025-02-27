@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FocusMate</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>FocusMate</h1>
+      <p>Управляй задачами и улучшай свою продуктивность!</p>
+    </header>
+
+    <div class="button-container">
+      <button id="signInBtn">Sign In</button>
+      <a href="r.html"><button id="signInBtn2">reading-list</button></a>
+      <a href="p.html"><button id="signInBtn3">Timer</button></a>
+    </div>
+
+
+    <div class="container"> 
+      <h1>Мой To-Do List</h1>
+      <input
+        type="text"
+        id="taskInput"
+        placeholder="Добавить новую задачу..."
+      />
+      <button id="addTaskBtn">Добавить</button>
+      <div class="task-list" id="taskList"></div>
+
+      <div class="notification" id="notification">Задача добавлена!</div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
